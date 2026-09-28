@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: #f4f5f7;
+  --surface: #ffffff;
+  --surface-muted: #f8f9fb;
+  --border: #d5dae1;
+  --border-strong: #b6bec9;
+  --foreground: #111827;
+  --muted: #4b5563;
+  --accent: #0b5cad;
+  --accent-hover: #094a8c;
+  --accent-soft: #e6f0fa;
+  --accent-contrast: #ffffff;
+  --focus: #0b5cad;
+  --valid: #0f6b38;
+  --valid-soft: #e7f4ec;
+  --invalid: #b42318;
+  --invalid-soft: #fdecea;
+  --warning: #8a4b00;
+  --warning-soft: #fff4e0;
+  --info: #1f4f82;
+  --info-soft: #eaf1f9;
+
+  --editor-bg: #ffffff;
+  --editor-fg: #1f2328;
+  --editor-gutter-bg: #f6f8fa;
+  --editor-gutter-fg: #57606a;
+  --editor-active-line: #f3f6fa;
+  --editor-selection: #cfe3fb;
+  --editor-indent-guide: #dde2e8;
+  --syn-key: #0550ae;
+  --syn-string: #0a6b2c;
+  --syn-number: #953800;
+  --syn-atom: #8250df;
+  --syn-comment: #57606a;
+  --syn-meta: #8250df;
+  --syn-punct: #57606a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: #0d1117;
+    --surface: #151b23;
+    --surface-muted: #11161d;
+    --border: #2d3743;
+    --border-strong: #3d4a58;
+    --foreground: #e6edf3;
+    --muted: #a3b0bd;
+    --accent: #4c9aff;
+    --accent-hover: #74b0ff;
+    --accent-soft: #15273d;
+    --accent-contrast: #0d1117;
+    --focus: #74b0ff;
+    --valid: #4ac26b;
+    --valid-soft: #10261a;
+    --invalid: #ff7b72;
+    --invalid-soft: #2d1416;
+    --warning: #e3b341;
+    --warning-soft: #2b2111;
+    --info: #79b8ff;
+    --info-soft: #132235;
+
+    --editor-bg: #0f141a;
+    --editor-fg: #e6edf3;
+    --editor-gutter-bg: #121820;
+    --editor-gutter-fg: #7d8a97;
+    --editor-active-line: #161d26;
+    --editor-selection: #264466;
+    --editor-indent-guide: #26303b;
+    --syn-key: #79c0ff;
+    --syn-string: #7ee787;
+    --syn-number: #ffa657;
+    --syn-atom: #d2a8ff;
+    --syn-comment: #8b949e;
+    --syn-meta: #d2a8ff;
+    --syn-punct: #8b949e;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-valid: var(--valid);
+  --color-valid-soft: var(--valid-soft);
+  --color-invalid: var(--invalid);
+  --color-invalid-soft: var(--invalid-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* CodeMirror: leading-whitespace indentation guides and tab warnings. */
+.cm-indent-guide {
+  background-image: linear-gradient(to right, var(--editor-indent-guide) 1px, transparent 1px);
+  background-size: calc(var(--indent-guide-width, 2) * 1ch) 100%;
+  background-repeat: repeat-x;
+}
+
+.cm-leading-tab {
+  background-color: var(--invalid-soft);
+  outline: 1px dashed var(--invalid);
+  outline-offset: -1px;
+}
+
+.editor-frame:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: -1px;
+}
